@@ -15,5 +15,22 @@ public record Money(Currency currency, BigDecimal amount) {
         }
     }
 
+    public static Money of(Currency currency, int mayor, int minor){
+        int scale = currency.getDefaultFractionDigits();
+        return new Money(currency, BigDecimal.valueOf(mayor).add(BigDecimal.valueOf(minor, scale)));
+    }
 
+    public Money multiply(int multiplicand){
+        return new Money(currency, amount.multiply(BigDecimal.valueOf(multiplicand)));
+    }
+
+    public Money add(Money augend){
+        if(!this.currency.equals(augend.currency())){
+            throw new IllegalArgumentException(
+                    "Currency %s of augend does not match this money currency %s"
+                            .formatted(augend.currency(), this.currency)
+            );
+        }
+        return new Money(currency, amount.add(augend.amount()));
+    }
 }
