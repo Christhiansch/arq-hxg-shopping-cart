@@ -6,6 +6,9 @@ import com.mitocode.shop.adapter.in.rest.cart.GetCartController;
 import com.mitocode.shop.adapter.in.rest.product.FindProductsController;
 import com.mitocode.shop.adapter.out.persistence.inmemory.InMemoryCartRepository;
 import com.mitocode.shop.adapter.out.persistence.inmemory.InMemoryProductRepository;
+import com.mitocode.shop.adapter.out.persistence.jpa.EntityManagerFactoryFactory;
+import com.mitocode.shop.adapter.out.persistence.jpa.JpaCartRepository;
+import com.mitocode.shop.adapter.out.persistence.jpa.JpaProductRepository;
 import com.mitocode.shop.application.port.in.cart.AddToCartUseCase;
 import com.mitocode.shop.application.port.in.cart.EmptyCartUseCase;
 import com.mitocode.shop.application.port.in.cart.GetCartUseCase;
@@ -16,6 +19,7 @@ import com.mitocode.shop.application.service.cart.AddToCartService;
 import com.mitocode.shop.application.service.cart.EmptyCartService;
 import com.mitocode.shop.application.service.cart.GetCartService;
 import com.mitocode.shop.application.service.product.FindProductsService;
+import jakarta.persistence.EntityManagerFactory;
 import jakarta.ws.rs.core.Application;
 
 import java.util.Set;
@@ -54,7 +58,14 @@ public class RestEasyUndertowShopApplication extends Application {
     }
 
     private void initMysqlAdapters(){
-        //TODO
+        EntityManagerFactory entityManagerFactory =
+                EntityManagerFactoryFactory.createMysqlEntityManagerFactory(
+                        "jdbc:mysql://localhost:3306/shop", "root", "test"
+                );
+
+        cartRepository = new JpaCartRepository(entityManagerFactory);
+        productRepository = new JpaProductRepository(entityManagerFactory);
+
     }
 
     private GetCartController getCartController(){
