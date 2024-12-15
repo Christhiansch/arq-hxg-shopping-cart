@@ -5,42 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67fc88f3-8b01-4e6e-869d-e9dea61a8b8d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/SpringAppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/in/rest/common/ClientErrorException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/in/rest/common/ClientErrorHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/out/persistence/jpa/JpaCartSpringDataRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/out/persistence/jpa/JpaProductSpringDataRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adapter/src/test/resources/application-test.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/src/main/resources/application-mysql.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/mitocode/shop/model/cart/CartNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/in/rest/cart/AddToCartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/in/rest/cart/AddToCartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/in/rest/cart/EmptyCartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/in/rest/cart/EmptyCartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/in/rest/cart/GetCartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/in/rest/cart/GetCartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/in/rest/common/ControllerCommons.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/in/rest/common/ControllerCommons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/in/rest/common/CustomerIdParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/in/rest/common/CustomerIdParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/in/rest/common/ProductIdParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/in/rest/common/ProductIdParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/in/rest/product/FindProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/in/rest/product/FindProductsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/out/persistence/inmemory/InMemoryCartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/out/persistence/inmemory/InMemoryCartRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/out/persistence/inmemory/InMemoryProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/out/persistence/inmemory/InMemoryProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/out/persistence/jpa/JpaCartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/out/persistence/jpa/JpaCartRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/out/persistence/jpa/JpaProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/main/java/com/mitocode/shop/adapter/out/persistence/jpa/JpaProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/test/java/com/mitocode/shop/adapter/in/rest/HttpTestCommons.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/test/java/com/mitocode/shop/adapter/in/rest/HttpTestCommons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/test/java/com/mitocode/shop/adapter/in/rest/cart/CartsControllerAssertions.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/test/java/com/mitocode/shop/adapter/in/rest/cart/CartsControllerAssertions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/test/java/com/mitocode/shop/adapter/in/rest/cart/CartsControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/test/java/com/mitocode/shop/adapter/in/rest/cart/CartsControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/test/java/com/mitocode/shop/adapter/in/rest/product/ProductsControllerAssertions.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/test/java/com/mitocode/shop/adapter/in/rest/product/ProductsControllerAssertions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/test/java/com/mitocode/shop/adapter/in/rest/product/ProductsControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/test/java/com/mitocode/shop/adapter/in/rest/product/ProductsControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/test/java/com/mitocode/shop/adapter/out/persistence/AbstractCartRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/test/java/com/mitocode/shop/adapter/out/persistence/AbstractCartRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/test/java/com/mitocode/shop/adapter/out/persistence/AbstractProductRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/test/java/com/mitocode/shop/adapter/out/persistence/AbstractProductRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/test/java/com/mitocode/shop/adapter/out/persistence/inmemory/InMemoryCartRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/test/java/com/mitocode/shop/adapter/out/persistence/inmemory/InMemoryCartRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/src/test/java/com/mitocode/shop/adapter/out/persistence/inmemory/InMemoryProductRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/src/test/java/com/mitocode/shop/adapter/out/persistence/inmemory/InMemoryProductRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/src/main/java/com/mitocode/shop/bootstrap/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/src/main/java/com/mitocode/shop/bootstrap/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/src/main/java/com/mitocode/shop/bootstrap/RestEasyUndertowShopApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
