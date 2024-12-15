@@ -27,15 +27,16 @@ El proyecto está dividido en varios módulos siguiendo los principios de la arq
    ```
    
 2. Compila el proyecto:
-```sh
-  mvn clean install
-```
+   ```sh
+   mvn clean install
+   ```
 
 3. Ejecuta la aplicación:
   ```sh
-  mvn spring-boot:run
-```
+   mvn spring-boot:run
+   ```
 
 4. Ejecuta las pruebas unitarias
   ```sh
-  mvn test
+   mvn test
+   ```
