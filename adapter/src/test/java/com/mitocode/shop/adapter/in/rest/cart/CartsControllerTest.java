@@ -1,16 +1,14 @@
 package com.mitocode.shop.adapter.in.rest.cart;
 
-import static com.mitocode.shop.adapter.in.rest.HttpTestCommons.TEST_PORT;
 import static com.mitocode.shop.adapter.in.rest.HttpTestCommons.assertThatResponseIsError;
 import static com.mitocode.shop.adapter.in.rest.cart.CartsControllerAssertions.assertThatResponseIsCart;
 import static com.mitocode.shop.model.money.TestMoneyFactory.euros;
 import static com.mitocode.shop.model.product.TestProductFactory.createTestProduct;
 import static io.restassured.RestAssured.given;
-import static jakarta.ws.rs.core.Response.Status.BAD_REQUEST;
-import static jakarta.ws.rs.core.Response.Status.NO_CONTENT;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
+import static org.springframework.http.HttpStatus.NO_CONTENT;
 
 import com.mitocode.shop.application.port.in.cart.AddToCartUseCase;
 import com.mitocode.shop.application.port.in.cart.EmptyCartUseCase;
@@ -22,54 +20,31 @@ import com.mitocode.shop.model.customer.CustomerId;
 import com.mitocode.shop.model.product.Product;
 import com.mitocode.shop.model.product.ProductId;
 import io.restassured.response.Response;
-import jakarta.ws.rs.core.Application;
-import java.util.Set;
-import org.jboss.resteasy.plugins.server.undertow.UndertowJaxrsServer;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.test.context.ActiveProfiles;
 
+@ActiveProfiles("test")
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class CartsControllerTest {
 
     private static final CustomerId TEST_CUSTOMER_ID = new CustomerId(61157);
     private static final Product TEST_PRODUCT_1 = createTestProduct(euros(19, 99));
     private static final Product TEST_PRODUCT_2 = createTestProduct(euros(25, 99));
 
-    private static final AddToCartUseCase addToCartUseCase = mock(AddToCartUseCase.class);
-    private static final GetCartUseCase getCartUseCase = mock(GetCartUseCase.class);
-    private static final EmptyCartUseCase emptyCartUseCase = mock(EmptyCartUseCase.class);
+    @LocalServerPort
+    private Integer TEST_PORT;
 
-    private static UndertowJaxrsServer server;
+    @MockBean
+    AddToCartUseCase addToCartUseCase;
 
-    @BeforeAll
-    static void init() {
-        server =
-                new UndertowJaxrsServer()
-                        .setPort(TEST_PORT)
-                        .start()
-                        .deploy(
-                                new Application() {
-                                    @Override
-                                    public Set<Object> getSingletons() {
-                                        return Set.of(
-                                                new AddToCartController(addToCartUseCase),
-                                                new GetCartController(getCartUseCase),
-                                                new EmptyCartController(emptyCartUseCase));
-                                    }
-                                });
-    }
+    @MockBean
+    GetCartUseCase getCartUseCase;
 
-    @AfterAll
-    static void stop() {
-        server.stop();
-    }
-
-    @BeforeEach
-    void resetMocks() {
-        Mockito.reset(addToCartUseCase, getCartUseCase, emptyCartUseCase);
-    }
+    @MockBean
+    EmptyCartUseCase emptyCartUseCase;
 
     @Test
     void givenASyntacticallyInvalidCustomerId_getCart_returnsAnError() {
@@ -196,7 +171,7 @@ class CartsControllerTest {
                 .port(TEST_PORT)
                 .delete("/carts/" + customerId.value())
                 .then()
-                .statusCode(NO_CONTENT.getStatusCode());
+                .statusCode(NO_CONTENT.value());
 
         verify(emptyCartUseCase).emptyCart(customerId);
     }

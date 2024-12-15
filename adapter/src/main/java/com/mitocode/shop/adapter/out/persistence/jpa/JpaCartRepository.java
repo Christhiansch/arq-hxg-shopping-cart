@@ -3,51 +3,35 @@ package com.mitocode.shop.adapter.out.persistence.jpa;
 import com.mitocode.shop.application.port.out.persistence.CartRepository;
 import com.mitocode.shop.model.cart.Cart;
 import com.mitocode.shop.model.customer.CustomerId;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.TypedQuery;
-import lombok.Builder;
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
+@ConditionalOnProperty(name = "persistence", havingValue = "mysql")
+@Repository
+@RequiredArgsConstructor
 public class JpaCartRepository implements CartRepository {
 
-    private final EntityManagerFactory entityManagerFactory;
-
-    public JpaCartRepository(EntityManagerFactory entityManagerFactory){
-        this.entityManagerFactory = entityManagerFactory;
-    }
+    private final JpaCartSpringDataRepository springDataRepository;
 
     @Override
+    @Transactional
     public void save(Cart cart){
-        try(EntityManager entityManager = entityManagerFactory.createEntityManager()){
-            entityManager.getTransaction().begin();
-            entityManager.merge(CartMapper.toJpaEntity(cart));
-            entityManager.getTransaction().commit();
-        }
+        springDataRepository.save(CartMapper.toJpaEntity(cart));
     }
 
     @Override
+    @Transactional
     public Optional<Cart> findByCustomerId (CustomerId customerId){
-        try(EntityManager entityManager = entityManagerFactory.createEntityManager()){
-            CartJpaEntity cartJpaEntity = entityManager.find(CartJpaEntity.class, customerId.value());
-            return CartMapper.toModelEntityOptional(cartJpaEntity);
-        }
+        return springDataRepository.findByCustomerId(customerId.value()).flatMap(CartMapper::toModelEntityOptional);
     }
 
     @Override
+    @Transactional
     public void deleteByCustomerId(CustomerId customerId){
-        try(EntityManager entityManager = entityManagerFactory.createEntityManager()){
-            entityManager.getTransaction().begin();
-            CartJpaEntity cartJpaEntity = entityManager.find(CartJpaEntity.class, customerId.value());
-
-            if(cartJpaEntity != null){
-                entityManager.remove(cartJpaEntity);
-            }
-
-            entityManager.getTransaction().commit();
-
-        }
+        springDataRepository.deleteByCustomerId(customerId.value());
     }
 }

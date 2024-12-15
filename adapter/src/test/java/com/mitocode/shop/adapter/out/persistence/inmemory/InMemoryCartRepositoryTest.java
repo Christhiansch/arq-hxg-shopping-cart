@@ -1,17 +1,11 @@
 package com.mitocode.shop.adapter.out.persistence.inmemory;
 
 import com.mitocode.shop.adapter.out.persistence.AbstractCartRepositoryTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
-class InMemoryCartRepositoryTest
-        extends AbstractCartRepositoryTest<InMemoryCartRepository, InMemoryProductRepository> {
+@SpringBootTest
+@ActiveProfiles("test")
+class InMemoryCartRepositoryTest extends AbstractCartRepositoryTest {
 
-    @Override
-    protected InMemoryCartRepository createCartRepository() {
-        return new InMemoryCartRepository();
-    }
-
-    @Override
-    protected InMemoryProductRepository createProductRepository() {
-        return new InMemoryProductRepository();
-    }
 }
