@@ -32,11 +32,11 @@ El proyecto está dividido en varios módulos siguiendo los principios de la arq
    ```
 
 3. Ejecuta la aplicación:
-  ```sh
+   ```sh
    mvn spring-boot:run
    ```
 
 4. Ejecuta las pruebas unitarias
-  ```sh
+   ```sh
    mvn test
    ```
