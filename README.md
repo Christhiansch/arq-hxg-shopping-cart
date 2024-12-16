@@ -9,12 +9,12 @@ El proyecto está dividido en varios módulos siguiendo los principios de la arq
 - **Model**: Contiene la lógica de negocio y los modelos de dominio.
 - **Application**: Contiene los casos de uso y los puertos (interfaces) que definen las operaciones del sistema.
 - **Adapter**: Contiene los adaptadores que implementan los puertos y conectan la lógica de negocio con las interfaces externas (por ejemplo, controladores REST, repositorios de datos).
-- **Infrastructure**: Contiene la configuración y las dependencias del proyecto.
+- **Bootstrap**: Contiene la configuración y las dependencias del proyecto.
 
 ## Requisitos
 
-- Java 11 o superior
-- Maven 3.6 o superior
+- Java 21
+- Maven 3.9.6
 - Spring Boot 2.5 o superior
 
 ## Instalación
@@ -30,13 +30,8 @@ El proyecto está dividido en varios módulos siguiendo los principios de la arq
    ```sh
    mvn clean install
    ```
-
-3. Ejecuta la aplicación:
-   ```sh
-   mvn spring-boot:run
-   ```
-
-4. Ejecuta las pruebas unitarias
+   
+3. Ejecuta las pruebas unitarias
    ```sh
    mvn test
    ```
